@@ -93,12 +93,12 @@ The reference database paths under *Tooling and databases* point at the shared r
 
 **3. Job submission script**
 
-[`job_script.sh`](job_script.sh) activates the shared Snakemake environment and runs the workflow against [`cluster_profile/`](cluster_profile/).
+[`job_script.sh`](job_script.sh) activates the shared Snakemake environment and farms jobs out to Dartmouth HPC nodes via [`cluster_profile/`](cluster_profile/).
 
 >[!IMPORTANT]
-> Change the `--mail-user` line in [`job_script.sh`](job_script.sh) to your own address before submitting.
+> Change the `--mail-user` line in [`job_script.sh`](job_script.sh) to your own address before submitting. This should be the only line you need to change in this file. 
 
-Conda environments are built on first use. A prefix for where to install them can be set in the Snakemake call through the `--conda-prefix` argument. Building only occurs once, and concurrent runs can point at that path for ready usage.
+Conda environments are built on first use. A prefix for where to install them can be set in the Snakemake call through the `--conda-prefix` argument. Building only occurs once, and concurrent runs can point at that path for ready usage. If you would like to have environments build somewhere specific, you can set this `--conda-prefix` argument in the job script under the Snakemake invocation. 
 
 
 **4. Submitting the job**
