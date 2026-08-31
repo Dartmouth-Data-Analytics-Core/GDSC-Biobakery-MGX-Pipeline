@@ -1,0 +1,48 @@
+#----- MMUPHin environment (batch effect correction) -----#
+# Used by: rule batch_correct / scripts/run_mmuphin.R
+#
+# PINNED, DO NOT FLOAT:
+#   bioconductor-mmuphin=1.16.0
+#
+# R version is kept at 4.3 to match env_config/r-plotting.yaml, so the two R
+# environments behave the same. That is also what MMUPHin requires: 1.14.0 and
+# 1.16.0 both declare r-base >=4.3,<4.4. Older MMUPHin builds are pinned to
+# older R (1.12.0 -> R 4.2, 1.8.0 -> R 4.1), so bumping R means changing MMUPHin
+# and vice versa.
+#
+# MMUPHin already pulls in cowplot, dplyr, ggplot2, tidyr, stringr, metafor,
+# fpc, igraph and MaAsLin2. The ones listed below it are either explicitly
+# requested or genuinely useful for the batch correction work, and are named
+# here rather than left to chance.
+
+name: mmuphin
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - r-base=4.3
+  - bioconductor-mmuphin=1.16.0
+
+  #----- Requested
+  - r-ggplot2
+  - r-ggrepel
+  - r-dplyr
+
+  #----- Reading and reshaping
+  - r-data.table          # fread, matches how the other scripts/ read tables
+  - r-tidyr               # pivot_longer for plotting
+  - r-tibble
+
+  #----- Assessing the correction
+  - r-vegan               # Bray-Curtis + PCoA, for before vs after ordinations
+
+  #----- Plotting
+  - r-patchwork           # before/after panels side by side
+  - r-cowplot
+  - r-scales
+  - r-rcolorbrewer
+  - r-viridis
+  - r-gridextra
+  - r-stringr

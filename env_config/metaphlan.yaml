@@ -1,0 +1,25 @@
+#----- MetaPhlAn environment (taxonomic profiling) -----#
+# Used by: rule taxonomy, rule merge_abundances, rule extract_genus_species
+#
+# PINNED, DO NOT FLOAT:
+#   metaphlan=4.0.6
+#
+# This version is tied to the database index set in config.yaml:
+#   mpIndex: "mpa_vOct22_CHOCOPhlAnSGB_202212"
+# MetaPhlAn 4.1 and later moved to newer default databases (vJun23 onward) and
+# a different SGB vocabulary, so do not let this float up.
+#
+# bowtie2 is pinned because the alignment step feeds the abundance estimates,
+# and an unpinned version would quietly change results between rebuilds.
+
+name: metaphlan
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - python=3.10
+  - metaphlan=4.0.6
+  - bowtie2=2.5.2
+  - samtools=1.18

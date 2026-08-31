@@ -1,0 +1,75 @@
+#----- GDSC-Metagenomics Pipeline Configuration File -----# 
+# Authors
+#   v1: Shannon Soucy
+#   v2: Mike Martinez
+#---------------------------------------------------------#
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# GENERAL SETTINGS
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#----- Pipeline-specific -----#
+sample_csv: "sample_fastq_list_single.csv"
+layout: "single"
+
+#----- Optional rules
+skip_kneaddata: False
+run_mmuphin: True
+
+proj_dir: "/dartfs-hpc/rc/lab/G/GMBSR_bioinfo/misc/martinez/GDSC-MGX-Pipieline"
+outDir: "/dartfs-hpc/rc/lab/G/GMBSR_bioinfo/misc/martinez/GDSC-MGX-Pipieline/results"
+tmp_dir: "/dartfs-hpc/rc/lab/G/GMBSR_bioinfo/misc/martinez/GDSC-MGX-Pipieline/tmp"
+
+
+#----- Metaphlan -----#
+metaphlan_analysis_type: "rel_ab_w_read_stats"  # rel_ab
+# See metaphlan -h for list of possible arguments
+
+#----- Humann3 -----#
+mode: "uniref90" 
+normMethod: "cpm"
+taxons: "uniref90-tol-lca"
+
+#----- MMUPHin -----#
+mmuphin_batch: "batch"
+
+#----- Biological variable(s) to preserve. These columns must be in the sample
+# sheet and named the same way, case-sensitive. Optional: an empty list [] means 
+# don't include covariates.
+mmuphin_covariates: ["group"]
+
+#----- Which taxonomic rank(s) to correct. 
+mmuphin_ranks: ["species"] 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# TOOLING AND DATABASES
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#----- Biobakery tools / CFR -----#
+kneaddata_path: "kneaddata"
+metaphlan_path: "metaphlan"
+humann_path: "humann"
+
+#----- Biobakery / CFR databases -----#
+nt_db: "/dartfs/rc/nosnapshots/G/GMBSR_refs/mgx_pipeline/Choco/chocophlan/"
+aa_db: "/dartfs/rc/nosnapshots/G/GMBSR_refs/mgx_pipeline/uniref/uniref"
+
+
+utility_mapping: "/dartfs/rc/nosnapshots/G/GMBSR_refs/mgx_pipeline/utility_mapping"
+metaphlan_db: "/dartfs/rc/nosnapshots/G/GMBSR_refs/mgx_pipeline/metaphlan/metaphlan_databases/"
+mpIndex: "mpa_vOct22_CHOCOPhlAnSGB_202212"
+
+
+#----- Bowtie references -----#
+bowtie_ref: "/dartfs/rc/nosnapshots/G/GMBSR_refs/Hsapiens/GRCh38/dna_index/bowtie2_index"
+#bowtie_ref: "/dartfs/rc/nosnapshots/G/GMBSR_refs/Mmusculus/GRCm39/dna_index/bowtie2_index"
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# PLOTTING PARAMS
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#----- HClust -----#
+distanceMetric: "braycurtis"
+aspect_ratio: "0.5"
+label_size: "10"
+max_label_len: "100"
+minv: "0.1"
+dpi: "300"
+

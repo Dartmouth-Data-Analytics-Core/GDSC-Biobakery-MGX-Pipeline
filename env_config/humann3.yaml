@@ -1,0 +1,35 @@
+#----- HUMAnN 3 environment (functional profiling) -----#
+# Used by: rule function, rule merge_function, rule normalize_function,
+#          rule rename_function, rule infer_taxonomy_from_function
+#
+# PINNED, DO NOT FLOAT:
+#   humann=3.7
+#
+# On the metaphlan version in this env:
+# HUMAnN declares `metaphlan >=4.0` as a runtime dependency, as a fallback for
+# when no taxonomic profile is supplied. This pipeline always passes
+# --taxonomic-profile from rule taxonomy, so the metaphlan in this env is never
+# actually invoked for profiling.
+#
+# It is still pinned, and pinned to the SAME version as env_config/metaphlan.yaml,
+# because `>=4.0` is an open bound. Left unpinned, a rebuild of this env today
+# would pull metaphlan 4.2.x, which expects a different database generation than
+# the mpa_vOct22_CHOCOPhlAnSGB_202212 index this project uses. Keeping both envs
+# on 4.0.6 means one MetaPhlAn version and one database story across the pipeline.
+#
+# bowtie2 and diamond are pinned because they run the nucleotide and translated
+# search steps, which directly determine gene family abundances.
+
+name: humann3
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - python=3.10
+  - humann=3.7
+  - metaphlan=4.0.6
+  - bowtie2=2.5.1
+  - diamond=2.1.8
+  - glpk

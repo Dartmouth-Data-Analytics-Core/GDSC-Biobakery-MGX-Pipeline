@@ -1,0 +1,33 @@
+name: r-plotting
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  - r-base=4.3
+  - r-dplyr
+  - r-tidyr
+  - r-purrr
+  - r-ggplot2
+  - r-ggrepel
+  - r-RColorBrewer
+  - r-viridis
+  - r-readr
+  - r-stringr
+  - r-forcats
+  - r-scales
+  - r-patchwork
+  - r-cowplot
+  - r-gridExtra
+  - r-glue
+  - r-tibble
+  - r-data.table
+  - r-ggthemes
+  - r-jsonlite
+  - r-here
+  - r-assertthat
+  - r-cli
+  - r-magrittr
+  - r-remotes
+  - r-vegan

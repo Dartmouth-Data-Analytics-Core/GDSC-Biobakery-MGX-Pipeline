@@ -1,0 +1,33 @@
+#----- KneadData environment (host read filtering) -----#
+# Used by: rule filter
+#
+# PINNED, DO NOT FLOAT:
+#   kneaddata=0.12.0
+#
+# Note on trimmomatic: kneaddata 0.12.0 already declares trimmomatic as a runtime
+# dependency, so conda installs it here automatically. It is pinned to 0.39 to
+# match the version the old hardcoded config path pointed at.
+#
+# rule filter does NOT rely on PATH to find it. kneaddata runs `java -jar <path>`,
+# and the thing conda puts on PATH (bin/trimmomatic) is a python wrapper script,
+# not a jar. The rule resolves share/trimmomatic*/trimmomatic.jar itself. See the
+# comment in rule filter for the details.
+#
+# pigz is used by rule filter but was missing from the old env file. It only
+# worked because pigz happened to be on the cluster PATH.
+
+name: kneaddata
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - python=3.10
+  - kneaddata=0.12.0
+  - trimmomatic=0.39
+  - bowtie2=2.5.4
+  - trf=4.09.1
+  - fastqc=0.12.1
+  - samtools=1.20
+  - pigz=2.8

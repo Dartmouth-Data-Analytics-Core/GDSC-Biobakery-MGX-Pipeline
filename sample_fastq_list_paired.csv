@@ -1,0 +1,6 @@
+sample_id,batch,covariates,fastq_1,fastq_2
+S1743,,,/dartfs/rc/lab/O/OToole/GMBSR/20250429_clbmetagenomics/Metagenomics/fastqs/CFKC00252.fastq.gz
+S1916,,,/dartfs/rc/lab/O/OToole/GMBSR/20250429_clbmetagenomics/Metagenomics/fastqs/CFKC00264.fastq.gz
+S2139,,,/dartfs/rc/lab/O/OToole/GMBSR/20250429_clbmetagenomics/Metagenomics/fastqs/CFKC00348.fastq.gz
+S2280,,,/dartfs/rc/lab/O/OToole/GMBSR/20250429_clbmetagenomics/Metagenomics/fastqs/CFKC00443.fastq.gz
+S2315,,,/dartfs/rc/lab/O/OToole/GMBSR/20250429_clbmetagenomics/Metagenomics/fastqs/CFKC00503.fastq.gz
