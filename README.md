@@ -61,9 +61,11 @@ Populate [`sample_fastq_list_single.csv`](sample_fastq_list_single.csv) or [`sam
 | `batch` | Optional. Technical variable for MMUPHin, such as sequencing run or plate |
 | `group` | Optional. Biological variable for MMUPHin, such as condition or treatment |
 
-> [!IMPORTANT] Any column that is not `sample_id`, `fastq_1` or `fastq_2` is treated as sample metadata and is available to MMUPHin. The columns can be named anything as long as the names in `config.yaml` match.
+> [!IMPORTANT] 
+> Any column that is not `sample_id`, `fastq_1` or `fastq_2` is treated as sample metadata and is available to MMUPHin. The columns can be named anything as long as the names in `config.yaml` match.
 
-> [!IMPORTANT] `sample_id` becomes part of every output filename, so it cannot contain whitespace or slashes. The Snakefile checks this along with duplicate and blank sample IDs, and reports every problem it finds in one pass.
+> [!IMPORTANT]
+> `sample_id` becomes part of every output filename, so it cannot contain whitespace or slashes. The Snakefile checks this along with duplicate and blank sample IDs, and reports every problem it finds in one pass.
 
 An example of a bare-bones sample sheet for single-end data is shown below. This configuration implied MMUPHin will not be ran. 
 
