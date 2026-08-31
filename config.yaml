@@ -1,24 +1,16 @@
-#----- GDSC-Metagenomics Pipeline Configuration File -----# 
-# Authors
-#   v1: Shannon Soucy
-#   v2: Mike Martinez
-#---------------------------------------------------------#
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # GENERAL SETTINGS
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #----- Pipeline-specific -----#
 sample_csv: "sample_fastq_list_single.csv"
 layout: "single"
-
-#----- Optional rules
-skip_kneaddata: False
-run_mmuphin: True
-
 proj_dir: "/dartfs-hpc/rc/lab/G/GMBSR_bioinfo/misc/martinez/GDSC-MGX-Pipieline"
 outDir: "/dartfs-hpc/rc/lab/G/GMBSR_bioinfo/misc/martinez/GDSC-MGX-Pipieline/results"
 tmp_dir: "/dartfs-hpc/rc/lab/G/GMBSR_bioinfo/misc/martinez/GDSC-MGX-Pipieline/tmp"
 
+#----- Optional rules
+skip_kneaddata: False
+run_mmuphin: True
 
 #----- Metaphlan -----#
 metaphlan_analysis_type: "rel_ab_w_read_stats"  # rel_ab
@@ -43,20 +35,18 @@ mmuphin_ranks: ["species"]
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # TOOLING AND DATABASES
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#----- Biobakery tools / CFR -----#
+
+#----- Biobakery tools -----#
 kneaddata_path: "kneaddata"
 metaphlan_path: "metaphlan"
 humann_path: "humann"
 
-#----- Biobakery / CFR databases -----#
+#----- Biobakery databases -----#
 nt_db: "/dartfs/rc/nosnapshots/G/GMBSR_refs/mgx_pipeline/Choco/chocophlan/"
 aa_db: "/dartfs/rc/nosnapshots/G/GMBSR_refs/mgx_pipeline/uniref/uniref"
-
-
 utility_mapping: "/dartfs/rc/nosnapshots/G/GMBSR_refs/mgx_pipeline/utility_mapping"
 metaphlan_db: "/dartfs/rc/nosnapshots/G/GMBSR_refs/mgx_pipeline/metaphlan/metaphlan_databases/"
 mpIndex: "mpa_vOct22_CHOCOPhlAnSGB_202212"
-
 
 #----- Bowtie references -----#
 bowtie_ref: "/dartfs/rc/nosnapshots/G/GMBSR_refs/Hsapiens/GRCh38/dna_index/bowtie2_index"
