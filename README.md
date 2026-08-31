@@ -43,8 +43,8 @@ The GDSC Biobakery (metagenomics) pipeline provides preprocessing, taxonomic pro
 Clone the repository:
 
 ```shell
-git clone https://github.com/Dartmouth-Data-Analytics-Core/GDSC-MGX-Pipieline
-cd GDSC-MGX-Pipieline
+git clone https://github.com/Dartmouth-Data-Analytics-Core/GDSC-Biobakery-MGX-Pipeline
+cd GDSC-Biobakery-MGX-Pipeline
 ```
 
 ## Configuration
