@@ -67,7 +67,7 @@ Populate [`sample_fastq_list_single.csv`](sample_fastq_list_single.csv) or [`sam
 > [!IMPORTANT]
 > `sample_id` becomes part of every output filename, so it cannot contain whitespace or slashes. The Snakefile checks this along with duplicate and blank sample IDs, and reports every problem it finds in one pass.
 
-An example of a bare-bones sample sheet for single-end data is shown below. This configuration implied MMUPHin will not be ran. 
+An example of a bare-bones sample sheet for single-end data is shown below. This configuration implies MMUPHin will not be ran. 
 
 ```
 sample_id,fastq_1
