@@ -336,7 +336,7 @@ rule filter:
             #----- gzip kneaddata outputs
             pigz {kneaddata}{params.sample}/{params.sample}.fastq
             mv {kneaddata}{params.sample}/{params.sample}.fastq.gz {kneaddata}
-            mv {kneaddata}{params.sample}/{params.sample}*contam*.fastq {tmp}
+            rm -f {kneaddata}{params.sample}/{params.sample}*contam*.fastq
         fi
 
         #----- Drop the jar symlink directory
