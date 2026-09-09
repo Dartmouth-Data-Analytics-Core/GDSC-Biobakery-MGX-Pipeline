@@ -35,7 +35,6 @@ sample_list = list(samples_df['sample_id'])
 #----- Set directories
 projDir = config["proj_dir"] + '/'
 outDir = config["outDir"] + '/'
-raw = projDir + "raw_data/"
 
 #----- Host read filtering
 kneaddata = outDir + "kneaddata/"
